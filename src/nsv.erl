@@ -55,9 +55,8 @@ web_config(inets) ->
      {server_admin, "humasect@gmail.com"},
 
      %% mod_ssi before mod_actions
-     {modules, [
-                mod_alias, mod_auth, mod_actions, mod_cgi,
-                nsv_mod_vbucket,
+     {modules, [mod_alias, mod_auth, mod_actions, mod_cgi,
+                nsv_mod_bucket,
                 mod_dir, 
                 mod_get, mod_head, mod_log, mod_disk_log,
                 mod_htaccess, mod_include]}

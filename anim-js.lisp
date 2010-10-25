@@ -12,41 +12,11 @@
            fill-style ,fill-style
            stroke-style ,stroke-style))
 
-  ;; `(progn
-  ;;    (var layer (*layer ,name))
-  ;;    (layer-add-sublayer ,parent layer)
-  ;;    (setf (@ layer fill-style) ,fill-style)
-  ;;    (set-bounds layer ,bounds)))
-
 (defpsmacro set-bounds (l b)
   `(setf (@ ,l bounds) ,b))
 
-;; graphics
-(defpsmacro cg-fill-style (style)
-  `(setf (@ *ctx* fill-style) ,style))
-
-(defpsmacro cg-fill-rect (r)
-  `((@ *ctx* fill-rect)
-    (rect-x ,r) (rect-y ,r)
-    (rect-width ,r) (rect-height ,r)))
-
-(defpsmacro cg-stroke-style (style)
-  `(setf (@ *ctx* stroke-style) ,style))
-
-(defpsmacro cg-font (size name)
-  `(setf (@ *ctx* font) (concatenate 'string ,size "px " ,name)))
-
-
 (defmacro anim-js ()
   `(progn
-     ;; (defun *layer (n)
-     ;;   (create name n
-     ;;           superlayer null
-     ;;           sublayers (array)
-     ;;           bounds (rect-make 0 0 1 1)
-     ;;           fill-style "blue"
-     ;;           stroke-style "white"))
-
      (defun layer-add-sublayer (l s)
        ;; does not check if layer is already present.
        ;;(clog s)

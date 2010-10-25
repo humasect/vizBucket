@@ -12,4 +12,5 @@
   :components ((:file "vizbucket")
                (:file "geom-js")
                (:file "anim-js")
+               (:file "graph-js")
                (:file "main-js")))

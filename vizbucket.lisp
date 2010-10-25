@@ -23,6 +23,7 @@
 
                   (:script :src "geom.js")
                   (:script :src "anim.js")
+                  (:script :src "graph.js")
                   (:script :src "main.js"))
            (:body
             (:div
@@ -46,12 +47,22 @@
 
              (:div :id "mainContainer"
                    :class "main_holder"
-                   (:table :id "server_table"
-                           (:tr :id "server_icons"))))
+                   (:canvas :id "screen_canvas"
+                            :width *screen-width*
+                            :height *screen-height*)
+                   ;; (:table :id "server_table"
+                   ;;         (:tr :id "server_icons")
+                   ;;         (:tr (:td))
+                   ;;         (:tr :id "server_active")
+                   ;;         (:tr (:td))
+                   ;;         (:tr :id "server_replica"))
+                   (:br))
 
-            ;; (:canvas :id "canvas"
-            ;;          :width (* *tile-width* *scr-width*)
-            ;;          :height (* *tile-height* *scr-height*))
+             (:div :class "page-footer"
+                   (:div :class "main_holder"
+                         (:h1 "Copyright &copy; 2010"
+                              (:a :href "http://membase.com"
+                                  "Membase, Inc.")))))
             ))))
 
 ;;;
@@ -72,6 +83,29 @@
 
 (defun output-all ()
   (output-file "index.html" #'index-html)
-  (output-main)
   (output-geom)
-  (output-anim))
+  (output-anim)
+  (output-graph)
+  (output-main))
+
+
+;; some utility stuff
+
+(defpsmacro clog (fmt)
+  `((@ console log) ,fmt))
+
+(defpsmacro clogf (fmt &rest args)
+  `((@ console log) (concatenate 'string ,fmt ,@args)))
+
+(defpsmacro defproto (class name &body body)
+  `(setf (@ ,class prototype ,name) ,@body))
+
+(defpsmacro setprop (object key value)
+  `(setf (@ ,object ,key) ,value))
+
+(defpsmacro setthis (key value)
+  `(setf (@ this ,key) ,value))
+
+(defpsmacro for-each (x f)
+  `(for-in (i ,x) (,f (getprop ,x i))))
+
