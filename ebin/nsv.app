@@ -12,13 +12,13 @@
 
   {env, [{web_port, 8081},
          {ctl_path, "/opt/membase/bin/ep_engine/management/"},
-         %%{ctl_host, "localhost"},
-         %%{ctl_port, 11210},
+         
+         {ctl_host, "localhost"},
+         {ctl_port, 11210},
 
          {info_host, "localhost"},
          {info_port, 8091}
         ]},
-         %%{ctl_cmd,"/opt/NorthScale/bin/ep_engine/management/vbucketctl"}]},
 
   {applications, [kernel, stdlib, sasl, inets]}
  ]}.

@@ -1,11 +1,11 @@
 1. You need a Common Lisp implementation.
    Only tested on SBCL right now.
 
-2. Then link the vizbucket.asd file into your ~/.sbcl/systems directory:
+2. Then link the asd files into your ~/.sbcl/systems directory:
 
-   mkdir ~/.sbcl
-   mkdir ~/.sbcl/systems
-   ln -s ?/vizBucket/vizbucket.asd ~/.sbcl/systems
+   mkdir -p ~/.sbcl/systems
+   ln -s humaweb.asd ~/.sbcl/systems
+   ln -s vizbucket.asd ~/.sbcl/systems
 
 3. At the shell, cd to the the directory with this file, run SBCL, and
    then at the REPL, type:

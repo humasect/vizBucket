@@ -1,0 +1,59 @@
+
+<html>
+  <head>
+    <title>
+      Membase Bucket Migration
+    </title>
+    <link rel='stylesheet' type='text/css' href='console.css' />
+    <script src='jquery-1.4.2.min.js'></script>
+    <script src='underscore-1.1.0.min.js'></script>
+    <script src='geom.js'></script>
+    <script src='anim.js'></script>
+    <script src='graph.js'></script>
+    <script src='main.js'></script>
+  </head>
+  <body>
+    <div id='container'>
+      <div class='page-header'>
+        <div class='cnt_holder main_holder'>
+          <div class='topper_nav'>
+            <button onclick='stopPolling()'>
+              Stop
+            </button>
+            <a href='javascript:showAbout()'>
+              About
+            </a>
+            <b>
+              &bull;
+            </b>
+            <a href='javascript:ThePage.signOut()'>
+              Sign Out
+            </a>
+          </div>
+          <a href='/index.html'>
+            <span>
+              &nbsp;
+            </span>
+          </a>
+        </div>
+      </div>
+      <div id='view'></div>
+      <div id='cells'></div>
+      <div id='loading'></div>
+      <div id='mainContainer' class='main_holder'>
+        <canvas id='screen_canvas' width='800' height='600'></canvas>
+        <br />
+      </div>
+      <div class='page-footer'>
+        <div class='main_holder'>
+          <h1>
+            Copyright &copy; 2010
+            <a href='http://membase.com'>
+              Membase, Inc.
+            </a>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

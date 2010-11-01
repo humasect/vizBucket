@@ -8,9 +8,6 @@
   :author "Lyndon Tremblay"
   :description "Membase vBucket visualiser web console interface"
   :serial t
-  :depends-on (:cl-who :parenscript)
+  :depends-on (:cl-who :parenscript :humaweb)
   :components ((:file "vizbucket")
-               (:file "geom-js")
-               (:file "anim-js")
-               (:file "graph-js")
                (:file "main-js")))

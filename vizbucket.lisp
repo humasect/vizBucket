@@ -1,11 +1,19 @@
 (defpackage :vizbucket
   (:documentation "Membase vizBucket visualizer web console interface")
   (:nicknames :vb)
-  (:use :cl :cl-who :parenscript)
+  (:use :cl :cl-who :parenscript :humaweb)
   ;;(:export ...)
   )
 
 (in-package :vizbucket)
+
+(defvar *screen-width* 800)
+(defvar *screen-height* 600)
+
+(defun output ()
+  (output-project :dir "./htdocs"
+                  :html '("index")
+                  :js '("main")))
 
 ;;;
 
@@ -35,7 +43,7 @@
                :class "cnt_holder main_holder"
                (:div
                 :class "topper_nav"
-                (:button :onclick "stop_polling()" "Stop")
+                (:button :onclick "stopPolling()" "Stop")
                 (:a :href "javascript:showAbout()" "About")
                 (:b "&bull;")
                 (:a :href "javascript:ThePage.signOut()" "Sign Out"))
@@ -65,47 +73,4 @@
                                   "Membase, Inc.")))))
             ))))
 
-;;;
-
-(defun output-file (name fun)
-  (let* ((fname (concatenate 'string "./htdocs/" name))
-         (stream (open fname :direction :output :if-exists :supersede)))
-    (setf *parenscript-stream* nil)
-    (funcall fun stream)
-    (close stream)
-    (format t "done writing ~s~%" fname)))
-
-(defun output-js (name body)
-  (output-file (concatenate 'string name ".js")
-               (lambda (stream)
-                 (setf *parenscript-stream* stream)
-                 (parenscript:ps* (macroexpand-1 body)))))
-
-(defun output-all ()
-  (output-file "index.html" #'index-html)
-  (output-geom)
-  (output-anim)
-  (output-graph)
-  (output-main))
-
-
-;; some utility stuff
-
-(defpsmacro clog (fmt)
-  `((@ console log) ,fmt))
-
-(defpsmacro clogf (fmt &rest args)
-  `((@ console log) (concatenate 'string ,fmt ,@args)))
-
-(defpsmacro defproto (class name &body body)
-  `(setf (@ ,class prototype ,name) ,@body))
-
-(defpsmacro setprop (object key value)
-  `(setf (@ ,object ,key) ,value))
-
-(defpsmacro setthis (key value)
-  `(setf (@ this ,key) ,value))
-
-(defpsmacro for-each (x f)
-  `(for-in (i ,x) (,f (getprop ,x i))))
 
