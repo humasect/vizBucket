@@ -1,3 +1,25 @@
+==
+== To run the erlang server
+==
+
+1. Run the erlang shell script
+
+   ./erl-dev.sh
+
+2. Review the configuration in the file `./ebin/nsv.app'
+
+3. Run the erlang application.
+
+   nsv:start().
+
+4. Navigate web browser to:
+
+   http://localhost:8081/
+
+==
+== To re-export the html and javascript
+==
+
 1. You need a Common Lisp implementation.
    Only tested on SBCL right now.
 
@@ -11,4 +33,5 @@
    then at the REPL, type:
 
     (require :vizbucket)
-    (vizbucket:output-all)
+    (vizbucket:output)
+
