@@ -55,15 +55,19 @@
 
              (:div :id "mainContainer"
                    :class "main_holder"
-                   (:canvas :id "screen_canvas"
-                            :width *screen-width*
-                            :height *screen-height*)
+                   (:p (:canvas :id "screen-canvas"
+                                :width *screen-width*
+                                :height *screen-height*))
                    ;; (:table :id "server_table"
-                   ;;         (:tr :id "server_icons")
+                   ;;         (:tr :id "server-icons")
                    ;;         (:tr (:td))
-                   ;;         (:tr :id "server_active")
+                   ;;         (:tr :id "server-active")
                    ;;         (:tr (:td))
-                   ;;         (:tr :id "server_replica"))
+                   ;;         (:tr :id "server-replica")
+                   ;;         (:tr (:td) (:td :rowspan 3
+                   ;;                         (:canvas :id "screen-canvas"
+                   ;;                                  :width *screen-width*
+                ;;                                  :height *screen-height*))))
                    (:br))
 
              (:div :class "page-footer"

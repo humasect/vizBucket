@@ -34,22 +34,22 @@
          (request-json
           "vinfo"
           (lambda (d)
-            ((chain ($ "#loading") html) "")
+            (sethtml "#loading" "")
             (add-servers (chain d "vBucketServerMap" "serverList"))
             ;; poll for changes
             (if *server-polling* (set-timeout start-main *info-ms*))
             (return)
             )
           (lambda (d)
-            ((chain ($ "#loading") html)
-             (concatenate 'string "Failed to load: " d))))
+            (sethtml "#loading" (concatenate 'string "Failed to load: " d))))
 
          (setprop *screen* fill-style "blue")
-         (layer-render *screen*))
+         ;;(layer-render *screen*)
+         )
 
        (var *servers-need-update* f)
        (var *server-polling* t)
-       (var *servers* (array))
+       (var *servers* '())
        
        (defun add-servers (lst)
          (if (not lst) return)
@@ -66,13 +66,31 @@
          ;; remove old servers display
          (stop-polling)
          ;(setf *server-polling* t)
-         (setf *servers* (array))
+         (setf *servers* '())
 
-         ;; reset views
+         ;; reset display
+         (setprop *screen* sublayers '())
+         (sethtml "#server-icons" (:td))
+         (layer-add-sublayer *screen*
+                             (new-layer :fill-style "yellow"
+                                        :stroke-style "yellow"
+                                        :contents "Active"
+                                        :bounds (rect-make 100 100 100 100)))
+         (layer-add-sublayer *screen*
+                             (new-layer :fill-style "yellow"
+                                        :stroke-style "yellow"
+                                        :contents "Replica"
+                                        :bounds (rect-make 100 100 100 100)))
+
+         ;; (sethtml "#server-active" (:td :style "vertical-align:middle"
+         ;;                                (:h1 "Active")))
+         ;; (sethtml "#server-replica" (:td :style "vertical-align:middle"
+         ;;                                 (:h1 "Replica")))
 
          ;; add server icons and images
 
          (setf *servers-need-update* f)
+         (layer-render *screen*)
          (return))
 
        (defun stop-polling ()

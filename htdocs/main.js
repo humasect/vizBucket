@@ -33,10 +33,9 @@ function startMain() {
         };
         return null;
     }, function (d) {
-        return $('#loading').html('Failed to load: ' + d);
+        return $('#loading').html(('Failed to load: ' + d));
     });
-    SCREEN.fillStyle = 'blue';
-    return layerRender(SCREEN);
+    return SCREEN.fillStyle = 'blue';
 };
 var SERVERSNEEDUPDATE = false;
 var SERVERPOLLING = true;
@@ -57,7 +56,12 @@ function addServers(lst) {
     };
     stopPolling();
     SERVERS = [];
+    SCREEN.sublayers = [];
+    $('#server-icons').html('<TD></TD>');
+    layerAddSublayer(SCREEN, { name : '', superlayer : null, sublayers : [], bounds : { origin : { x : 100, y : 100 }, size : { width : 100, height : 100 } }, fillStyle : 'yellow', strokeStyle : 'yellow', contents : 'Active', render : null });
+    layerAddSublayer(SCREEN, { name : '', superlayer : null, sublayers : [], bounds : { origin : { x : 100, y : 100 }, size : { width : 100, height : 100 } }, fillStyle : 'yellow', strokeStyle : 'yellow', contents : 'Replica', render : null });
     SERVERSNEEDUPDATE = false;
+    layerRender(SCREEN);
     return null;
 };
 function stopPolling() {
