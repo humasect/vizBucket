@@ -23,6 +23,8 @@
 
 -define(SERVER, ?MODULE).
 
+-include("vizbucket.hrl").
+
 %%%===================================================================
 %%% API
 %%%===================================================================
@@ -43,8 +45,8 @@ get_env(Key) ->
 init([]) ->
     SupFlags = {one_for_one, 1, 3600},
 
-    BucketCtl = {nsv_bucketctl, {nsv_bucketctl, start_link, []},
-                 permanent, 2000, worker, [nsv_bucketctl]},
+    BucketCtl = {?METHOD, {?METHOD, start_link, []},
+                 permanent, 2000, worker, [?METHOD]},
 
     {ok, {SupFlags, [BucketCtl]}}.
 
