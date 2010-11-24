@@ -58,8 +58,8 @@ function addServers(lst) {
     SERVERS = [];
     SCREEN.sublayers = [];
     $('#server-icons').html('<TD></TD>');
-    layerAddSublayer(SCREEN, { name : '', superlayer : null, sublayers : [], bounds : { origin : { x : 100, y : 100 }, size : { width : 100, height : 100 } }, fillStyle : 'yellow', strokeStyle : 'yellow', contents : 'Active', render : null });
-    layerAddSublayer(SCREEN, { name : '', superlayer : null, sublayers : [], bounds : { origin : { x : 100, y : 100 }, size : { width : 100, height : 100 } }, fillStyle : 'yellow', strokeStyle : 'yellow', contents : 'Replica', render : null });
+    layerAddSublayer(SCREEN, { name : '', superlayer : null, sublayers : [], parent : null, bounds : { origin : { x : 100, y : 100 }, size : { width : 100, height : 100 } }, fillStyle : 'yellow', strokeStyle : 'yellow', contents : 'Active', render : null, animations : [] });
+    layerAddSublayer(SCREEN, { name : '', superlayer : null, sublayers : [], parent : null, bounds : { origin : { x : 100, y : 100 }, size : { width : 100, height : 100 } }, fillStyle : 'yellow', strokeStyle : 'yellow', contents : 'Replica', render : null, animations : [] });
     SERVERSNEEDUPDATE = false;
     layerRender(SCREEN);
     return null;

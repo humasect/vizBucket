@@ -8,6 +8,7 @@
     <script src='jquery-1.4.2.min.js'></script>
     <script src='underscore-1.1.0.min.js'></script>
     <script src='geom.js'></script>
+    <script src='layer.js'></script>
     <script src='anim.js'></script>
     <script src='graph.js'></script>
     <script src='main.js'></script>
@@ -15,8 +16,8 @@
   <body>
     <div id='container'>
       <div class='page-header'>
-        <div class='cnt_holder main_holder'>
-          <div class='topper_nav'>
+        <div class='cnt-holder main-holder'>
+          <div class='topper-nav'>
             <button onclick='stopPolling()'>
               Stop
             </button>
@@ -40,14 +41,14 @@
       <div id='view'></div>
       <div id='cells'></div>
       <div id='loading'></div>
-      <div id='mainContainer' class='main_holder'>
+      <div id='main-container' class='main-holder'>
         <p>
           <canvas id='screen-canvas' width='800' height='600'></canvas>
         </p>
         <br />
       </div>
       <div class='page-footer'>
-        <div class='main_holder'>
+        <div class='main-holder'>
           <h1>
             Copyright &copy; 2010
             <a href='http://membase.com'>

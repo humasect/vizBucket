@@ -1,154 +1,102 @@
-/* Membase Menelaus Web Console */
-/* begin ultimate reset */
+
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	/*font-size: 100.01%;*/
-	vertical-align: baseline;
-	background: transparent;
+    h1, h2, h3, p, blockquote pre,
+    a, code, em, font, img,
+    small, strike, strong,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li, form, label,
+    table, tr, th, td {
+margin:0;
+padding:0;
+border:0;
+outline:0;
+vertical-align:baseline;
+background:transparent;
 }
-b {font-weight:normal;}
+
+b {
+font-weight:normal;
+}
 
 body {
-    background: url("images/background.png") repeat-x;
+background:url('images/background.png') repeat-x;
 }
 
 #container {
-  background-color: #fff;
-  position: absolute;
-  width: 100%;
-  min-width: 960px;
-  min-height: 100%;
+background-color:#fff;
+position:absolute;
+width:100%;
+min-width:960px;
+min-height:100%;
 }
 
-#mainContainer {
-	position: relative;
-	width: 960px;
-	/*left: 12%;*/
-	margin-top: 55px;
-    padding: 0 0 220px 0;
+#main-container {
+position:relative;
+width:960px;
+margin-top:55px;
+padding:0 0 220px 0;
+}
+
+.cnt-holder {
+width:960px;
+position:relative;
+}
+
+.main-holder {
+width:960px;
+position:relative;
+left:0px !important;
 }
 
 .page-header {
-	background: url("images/ns_console_headerbg.png") repeat-x;
-	height: 100px;
-/*	left: 12%;*/
+background:url('images/ns_console_headerbg.png') repeat-x;
+height:100px;
 }
 
 .page-header span {
-	position: absolute;
-	background: url("images/ns_console_logov2.png") no-repeat;
-	width: 361px;
-	height: 49px;
-	top: 35px;
-	left:0;
+position:absolute;
+background:url('images/ns_console_logov2.png') no-repeat;
+width:361px;
+height:49px;
+top:35px;
+left:0;
 }
 
-.cnt_holder {width: 960px; position: relative; /*left: 12%;*/}
-.topper_nav {float:right; font-size:11px; padding:15px 0 0 0;}
-.topper_nav a {color:#e3e8ea !important; text-decoration:none;}
-.topper_nav b {margin:0 2px; color:#848f96; font-weight:bolder;}
+.topper-nav {
+float:right;
+font-size:11px;
+padding:15px 0 0 0;
+}
 
-.main_holder {
-    width: 960px;
-    position: relative;
-    left:0px !important;
+.topper-nav a {
+color:#e3e8ea !important;
+text-decoration:none;
+}
+
+.topper-nav b {
+margin:0 2px;
+color:#848f96;
+font-weight:bolder;
 }
 
 .page-footer {
-	position: absolute;
-	background: url("images/ns_console_footer.png") repeat-x;
-	width: 100%;
-	height: 208px;
-	bottom: 0;
+position:absolute;
+background:url('images/ns_console_footer.png') repeat-x;
+width:100%;
+height:208px;
+bottom:0;
 }
 
 .page-footer h1 {
-    text-transform: none;
-	padding-top: 32px;
-/*	margin-left: 12%;*/
-	font-family: Verdana;
-	font-weight: normal;
-	font-size: 11pt;
-	color: 	#97979A;;
+text-transform:none;
+padding-top:32px;
+font-family:Verdana;
+font-weight:normal;
+font-size:11pt;
+color:#97979A;
 }
 
 .page-footer a {
-	color: #00A6DE;
-	text-decoration: none;
-}
-
-
-/* ------------------------------- */
-
-#server_table {
-    border-spacing: 64px 32px;
-}
-
-.server_container {
-    background: #d6dbde;
-    width: 192px;
-    height: 64px;
-}
-
-.server_icon {
-    float: center;
-    /*background: url("images/server_icon.png");*/
-}
-
-.server_name {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: bold;
-    color: #26BBFF;
-}
-
-.server_count_label {
-    font-size: 24px;
-    position: absolute;
-    z-index: 3;
-}
-
-/* -------------------- */
-
-.slice {
-    position: absolute;
-    z-index: 5;
-    /*background: url("server_cell.svg");*/
-    -webkit-transition: left 2s ease-in-out, top 2s ease-in-out,
-                        opacity 2s ease-in-out;
-
-    /*-webkit-box-shadow: 5px 5px 5px #ccc;*/
-}
-
-.deadshow    { background-color: red;    }
-.dead    { background-color: #aff;    }
-.active  { background-color: #afa;     }
-.replica { background-color: #ffa;    }
-.pending { background-color: #aff; }
-
-.circle {
-    z-index: 1;
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-
-    -webkit-transition: left 2s ease-in-out, top 2s ease-in-out,
-                        opacity 1s ease-in-out,
-                        background-color 3s ease-in-out;
+color:#00A6DE;
+text-decoration:none;
 }
